@@ -24,16 +24,15 @@ const isPrime = (x) => {
 const primeNumber = (n) => {
     const result = new Array(n + 1).fill(0).map((x, i) => i).slice(2);
 
-    for (let i = 0; i < result.length; i += 1) {
-        if (result[i] !== null && isPrime(result[i])) {
+    for (let i = 0; i <= result.length; i += 1) {
+        if (result[i] !== null) {
             for (let j = i + result[i]; j <= result.length; j += result[i]) {
                 result[j] = null;
             }
         }
     }
 
-    return result.filter(x => x !== null);
-
+    return result.filter(Boolean);
 }
 
 
